@@ -3,6 +3,7 @@ from pygame.locals import *
 import brick
 pygame.init()
 
+
 def main():
     # Constants that will be used in the program
     APPLICATION_WIDTH = 400
@@ -32,11 +33,81 @@ def main():
     x_pos = BRICK_SEP
     y_pos = BRICK_Y_OFFSET
 
-    for x in range(BRICKS_PER_ROW):  # a loop that repeats until it finish the program making 9 bricks
-
-        my_brick = brick.Brick(BRICK_WIDTH, BRICK_HEIGHT, RED)
+    for x in range(BRICKS_PER_ROW):
+        my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (RED))
         main_surface.blit(my_brick.image,(x_pos, y_pos))
+        x_pos = x_pos+BRICK_SEP+BRICK_WIDTH
 
+    x_pos = BRICK_SEP
+    y_pos = y_pos + BRICK_HEIGHT + BRICK_SEP
+    for y in range(BRICKS_PER_ROW):
+        my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (RED))
+        main_surface.blit(my_brick.image,(x_pos, y_pos))
+        x_pos = x_pos + BRICK_SEP + BRICK_WIDTH
+
+    x_pos = BRICK_SEP
+    y_pos = y_pos + BRICK_HEIGHT + BRICK_SEP
+
+    for y in range(BRICKS_PER_ROW):
+        my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (ORANGE))
+        main_surface.blit(my_brick.image,(x_pos, y_pos))
+        x_pos = x_pos + BRICK_SEP + BRICK_WIDTH
+
+    x_pos = BRICK_SEP
+    y_pos = y_pos + BRICK_HEIGHT + BRICK_SEP
+
+    for y in range(BRICKS_PER_ROW):
+        my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (ORANGE))
+        main_surface.blit(my_brick.image,(x_pos, y_pos))
+        x_pos = x_pos + BRICK_SEP + BRICK_WIDTH
+
+    x_pos = BRICK_SEP
+    y_pos = y_pos + BRICK_HEIGHT + BRICK_SEP
+
+    for y in range(BRICKS_PER_ROW):
+        my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (YELLOW))
+        main_surface.blit(my_brick.image,(x_pos, y_pos))
+        x_pos = x_pos + BRICK_SEP + BRICK_WIDTH
+
+    x_pos = BRICK_SEP
+    y_pos = y_pos + BRICK_HEIGHT + BRICK_SEP
+
+    for y in range(BRICKS_PER_ROW):
+        my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (YELLOW))
+        main_surface.blit(my_brick.image,(x_pos, y_pos))
+        x_pos = x_pos + BRICK_SEP + BRICK_WIDTH
+
+    x_pos = BRICK_SEP
+    y_pos = y_pos + BRICK_HEIGHT + BRICK_SEP
+
+    for y in range(BRICKS_PER_ROW):
+        my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (GREEN))
+        main_surface.blit(my_brick.image,(x_pos, y_pos))
+        x_pos = x_pos + BRICK_SEP + BRICK_WIDTH
+
+    x_pos = BRICK_SEP
+    y_pos = y_pos + BRICK_HEIGHT + BRICK_SEP
+
+    for y in range(BRICKS_PER_ROW):
+        my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (GREEN))
+        main_surface.blit(my_brick.image,(x_pos, y_pos))
+        x_pos = x_pos + BRICK_SEP + BRICK_WIDTH
+
+    x_pos = BRICK_SEP
+    y_pos = y_pos + BRICK_HEIGHT + BRICK_SEP
+
+    for y in range(BRICKS_PER_ROW):
+        my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (CYAN))
+        main_surface.blit(my_brick.image,(x_pos, y_pos))
+        x_pos = x_pos + BRICK_SEP + BRICK_WIDTH
+
+    x_pos = BRICK_SEP
+    y_pos = y_pos + BRICK_HEIGHT + BRICK_SEP
+
+    for y in range(BRICKS_PER_ROW):
+        my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (CYAN))
+        main_surface.blit(my_brick.image,(x_pos, y_pos))
+        x_pos = x_pos + BRICK_SEP + BRICK_WIDTH
     # Step 1: Use loops to draw the rows of bricks. The top row of bricks should be 70 pixels away from the top of
     # the screen (BRICK_Y_OFFSET)
     while True:
