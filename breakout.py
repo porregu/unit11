@@ -1,6 +1,7 @@
 import pygame, sys
 from pygame.locals import *
 import brick
+import paddle
 pygame.init()
 
 
@@ -32,6 +33,12 @@ def main():
     main_surface.fill((255, 255, 255))
     x_pos = BRICK_SEP
     y_pos = BRICK_Y_OFFSET
+
+    my_paddle = paddle.Paddle(main_surface, (BLACK), (PADDLE_WIDTH), (PADDLE_HEIGHT))
+    main_surface.blit(my_paddle.image, (200, APPLICATION_HEIGHT - PADDLE_Y_OFFSET))
+
+
+
 
     for x in range(BRICKS_PER_ROW):
         my_brick = brick.Brick((BRICK_WIDTH), (BRICK_HEIGHT), (RED))
@@ -111,6 +118,9 @@ def main():
     # Step 1: Use loops to draw the rows of bricks. The top row of bricks should be 70 pixels away from the top of
     # the screen (BRICK_Y_OFFSET)
     while True:
+        main_surface.fill(WHITE)
+        my_paddle.move(pygame.mouse.get_pos())
+        main_surface.blit(my_paddle.image, (my_paddle.rect.x, APPLICATION_HEIGHT - PADDLE_Y_OFFSET))
         pygame.display.update()
         for event in pygame.event.get():
             if event == QUIT:
