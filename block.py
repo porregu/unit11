@@ -12,3 +12,4 @@ class Block:
         self.image = pygame.Surface((self.width, self.height))
         self.rect = self.image.get_rect()
         self.image.fill(self.color)
+
