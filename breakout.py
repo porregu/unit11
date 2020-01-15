@@ -31,6 +31,8 @@ def main():
     BLACK = (0, 0, 0)
     WHITE = (255, 255, 255)
 
+
+
     bricks_group = pygame.sprite.Group()
 
     paddle_group = pygame.sprite.Group()
@@ -39,6 +41,8 @@ def main():
 
     main_surface = pygame.display.set_mode((APPLICATION_WIDTH, APPLICATION_HEIGHT), 0, 32)
     main_surface.fill((255, 255, 255))
+    pg =pygame.image.load("DKwmO3_VAAAO9E5.jpg")
+    main_surface.blit(pg, (0, 0))
     x_pos = BRICK_SEP
     y_pos = BRICK_Y_OFFSET
 
@@ -164,11 +168,25 @@ def main():
     # the screen (BRICK_Y_OFFSET)
     while True:
         main_surface.fill(WHITE)
+        main_surface.blit(pg, (0, 0))
         for a_brick in bricks_group:
             main_surface.blit(a_brick.image, a_brick.rect)
         my_paddle.move(pygame.mouse.get_pos())
         main_surface.blit(my_paddle.image,my_paddle.rect)
         my_ball.move()
+        if my_ball.rect.bottom > APPLICATION_HEIGHT:
+            NUM_TURNS -= 1
+            my_ball.rect.x = 200
+            my_ball.rect.y = 300
+            main_surface.blit(my_ball.image, my_ball.rect)
+        if NUM_TURNS == 0:
+            main_surface.fill(WHITE)
+            myFont = pygame.font.SysFont("Helvetica", 50)
+            label = myFont.render("GAME OVER", 1, BLACK)
+            main_surface.blit(label, (200, 275))
+            pygame.display.update()
+            pygame.time.wait(100)
+            break
         main_surface.blit(my_ball.image, my_ball.rect)
         my_ball.paddle_collide(paddle_group)
         my_ball.brick_collide(bricks_group)
@@ -176,8 +194,9 @@ def main():
             break
         pygame.display.update()
         for event in pygame.event.get():
-            if event == QUIT:
+            if event.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()
+                quit()
+
 
 main()
