@@ -17,6 +17,8 @@ class Ball(pygame.sprite.Sprite):
         self.image.fill(color)
         self.rect = self.image.get_rect()
 
+        self.sound = pygame.mixer.Sound("Lighting Match-SoundBible.com-329028361.wav")
+
         self.x_speed = 5
         self.y_speed = 6
         # Add a circle to represent the ball to the surface just created.
@@ -30,6 +32,7 @@ class Ball(pygame.sprite.Sprite):
         if self.rect.top < 0 or self.rect.bottom > self.windowHeight:
             self.y_speed = -self.y_speed
 
+
     def paddle_collide(self, spriteGroup):
         if pygame.sprite.spritecollide(self, spriteGroup, False):
             self.y_speed = -self.y_speed
@@ -37,3 +40,4 @@ class Ball(pygame.sprite.Sprite):
     def brick_collide(self, spriteGroup):
         if pygame.sprite.spritecollide(self, spriteGroup, True):
             self.y_speed = -self.y_speed
+        self.sound.play()

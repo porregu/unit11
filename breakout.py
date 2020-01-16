@@ -41,7 +41,7 @@ def main():
 
     main_surface = pygame.display.set_mode((APPLICATION_WIDTH, APPLICATION_HEIGHT), 0, 32)
     main_surface.fill((255, 255, 255))
-    pg =pygame.image.load("0efac0dc8d72e2e170a7f7c991fecbdf.gif")
+    pg = pygame.image.load("0efac0dc8d72e2e170a7f7c991fecbdf.gif")
     main_surface.blit(pg, (0, 0))
     x_pos = BRICK_SEP
     y_pos = BRICK_Y_OFFSET
@@ -53,7 +53,7 @@ def main():
     paddle_group.add(my_paddle)
 
 
-    my_ball = ball.Ball((BLACK), APPLICATION_WIDTH, APPLICATION_HEIGHT, RADIUS_OF_BALL)
+    my_ball = ball.Ball((255, 20, 147), APPLICATION_WIDTH, APPLICATION_HEIGHT, RADIUS_OF_BALL)
     my_ball.rect.x = 200
     my_ball.rect.y = 300
     main_surface.blit(my_ball.image, my_ball.rect)
@@ -182,14 +182,17 @@ def main():
         if NUM_TURNS == 0:
             main_surface.fill(WHITE)
             myFont = pygame.font.SysFont("Helvetica", 50)
-            label = myFont.render("GAME OVER", 1, BLACK)
-            main_surface.blit(label, (200, 275))
-            pygame.display.update()
-            pygame.time.wait(100)
-            break
+            label = myFont.render(" GAME OVER ", 1, BLACK)
+            main_surface.blit(label, (100, 275))
+            pygame.display.flip()
+            pygame.time.wait(1000)
+
+
         main_surface.blit(my_ball.image, my_ball.rect)
         my_ball.paddle_collide(paddle_group)
         my_ball.brick_collide(bricks_group)
+        if NUM_TURNS == 0:
+            break
         if bricks_group == 0:
             break
         pygame.display.update()
