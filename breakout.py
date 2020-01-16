@@ -41,7 +41,7 @@ def main():
 
     main_surface = pygame.display.set_mode((APPLICATION_WIDTH, APPLICATION_HEIGHT), 0, 32)
     main_surface.fill((255, 255, 255))
-    pg =pygame.image.load("DKwmO3_VAAAO9E5.jpg")
+    pg =pygame.image.load("0efac0dc8d72e2e170a7f7c991fecbdf.gif")
     main_surface.blit(pg, (0, 0))
     x_pos = BRICK_SEP
     y_pos = BRICK_Y_OFFSET
