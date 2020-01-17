@@ -17,6 +17,6 @@ while True:
     new_circle.move()
     main_surface.blit(new_circle.image, new_circle.rect)
     for event in pygame.event.get():
-        if event.type = QUIT:
+        if event.type == QUIT:
             pygame.quit()
             sys.exit()

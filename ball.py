@@ -19,8 +19,8 @@ class Ball(pygame.sprite.Sprite):
 
         self.sound = pygame.mixer.Sound("Lighting Match-SoundBible.com-329028361.wav")
 
-        self.x_speed = 5
-        self.y_speed = 6
+        self.x_speed = 6
+        self.y_speed = 5
         # Add a circle to represent the ball to the surface just created.
 
     def move(self):
